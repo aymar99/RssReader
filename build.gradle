@@ -1,5 +1,16 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+    }
+}
+
 plugins {
     id 'java'
+    id "com.diffplug.spotless" version "5.14.2"
+    id 'application'
 }
 
 group 'com.aymar.rss'
@@ -14,6 +25,23 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 test {
     useJUnitPlatform()
+}
+
+mainClassName = "com.aymar.rss.example.RssReaderExample"
+
+spotless {
+    java {
+        target project.fileTree(project.rootDir) {
+            include '**/*.java'
+            exclude 'build/generated/**/*.*'
+        }
+        googleJavaFormat()
+    }
 }

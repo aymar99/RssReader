@@ -1,4 +1,3 @@
 package com.aymar.rss;
 
-public class Reader {
-}
+public class Reader {}
