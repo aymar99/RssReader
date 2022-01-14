@@ -34,6 +34,10 @@ test {
     useJUnitPlatform()
 }
 
+wrapper {
+    gradleVersion = '7.2'
+}
+
 mainClassName = "com.aymar.rss.example.RssReaderExample"
 
 spotless {
