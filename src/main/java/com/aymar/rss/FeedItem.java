@@ -13,6 +13,7 @@ public class FeedItem {
   String title;
   String link;
   String description;
+  String pubDate;
 
   public void readFeed() {
     List<FeedItem> feedItemList;
@@ -27,6 +28,7 @@ public class FeedItem {
             boolean title = false;
             boolean link = false;
             boolean description = false;
+            boolean publishedDate = false;
 
             public void startElement(
                 String uri, String localName, String qName, Attributes attributes)
@@ -44,6 +46,9 @@ public class FeedItem {
                 if (qName.equalsIgnoreCase(DESCRIPTION)) {
                   description = true;
                 }
+                if (qName.equalsIgnoreCase(PUBLISHED_DATE)) {
+                  publishedDate = true;
+                }
               }
             }
 
@@ -51,6 +56,7 @@ public class FeedItem {
             public void endElement(String uri, String localName, String qName) throws SAXException {
               if (qName.equalsIgnoreCase(ITEM)) {
                 item = false;
+                System.out.println();
               }
             }
 
@@ -68,11 +74,15 @@ public class FeedItem {
                   System.out.println("description : " + new String(ch, start, length));
                   description = false;
                 }
+                if (publishedDate) {
+                  System.out.println("published date : " + new String(ch, start, length));
+                  publishedDate = false;
+                }
               }
             }
           };
 
-      saxParser.parse("https://critter.blog/feed/", handler);
+      saxParser.parse("https://den.dev/index.xml", handler);
     } catch (Exception e) {
       e.printStackTrace();
     }

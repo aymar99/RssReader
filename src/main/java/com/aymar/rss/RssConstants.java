@@ -7,4 +7,5 @@ public final class RssConstants {
   public static final String LINK = "link";
   public static final String DESCRIPTION = "description";
   public static final String ITEM = "item";
+  public static final String PUBLISHED_DATE = "pubDate";
 }
