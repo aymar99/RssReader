@@ -1,4 +1,4 @@
-package com.aymar.rss;
+package com.aymar.rss.common;
 
 public final class RssConstants {
   private RssConstants() {}

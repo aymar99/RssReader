@@ -1,8 +1,9 @@
-package com.aymar.rss;
+package com.aymar.rss.parser;
 
-import static com.aymar.rss.RssConstants.*;
-import static com.aymar.rss.RssConstants.ITEM;
+import static com.aymar.rss.common.RssConstants.*;
+import static com.aymar.rss.common.RssConstants.ITEM;
 
+import com.aymar.rss.dto.FeedItem;
 import java.util.ArrayList;
 import java.util.List;
 import org.xml.sax.Attributes;
